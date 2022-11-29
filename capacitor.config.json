@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Cut the Bread",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

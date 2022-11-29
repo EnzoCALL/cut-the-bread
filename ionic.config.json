@@ -1,0 +1,8 @@
+{
+  "name": "Cut the Bread",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "86a4f45b"
+}
