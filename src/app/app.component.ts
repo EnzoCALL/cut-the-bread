@@ -16,7 +16,7 @@ export class AppComponent {
     {
       title: 'Craft list',
       url: '/home',
-      icon: 'home',
+      icon: 'list-outline',
     },
     {
       title: 'Elements',

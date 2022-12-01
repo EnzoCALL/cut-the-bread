@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
       Craft list
     </ion-title>
@@ -16,9 +19,22 @@
         </ion-card-header>
         <ion-card-content>
           <p>{{receipe.description}}</p>
-          <p>> {{receipe.elements.length}} elements required :  {{getAllElements(receipe.name)}}</p>
+          <p>- {{receipe.elements.length}} elements required : {{getAllElements(receipe.name)}}
+            <ion-icon slot="end" *ngIf="receipe.status==='done'" name="checkmark-outline" style="color: green"></ion-icon>
+            <ion-icon slot="end" *ngIf="receipe.status==='todo'" name="close-outline" style="color: red"> </ion-icon>
+          </p>
         </ion-card-content>
       </ion-item-group>
     </ion-item-divider>
   </ion-item-sliding>
+  <p></p>
+  <ion-fab horizontal="center">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-button  horizontal="center" vertical="center" (click)="addReceipe()">Add a receipe</ion-button>
+    </ion-fab-list>
+  </ion-fab>
+  <p></p>
 </ion-content>

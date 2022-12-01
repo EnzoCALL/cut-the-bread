@@ -1,14 +1,14 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
 
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu side="start" contentId="main-content" type="overlay">
       <ion-header>
         <ion-toolbar>
           <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
-        <ion-list id="inbox-list">
+        <ion-list id="main-list">
           <ion-menu-toggle auto-hide="false" *ngFor="let page of appPages">
             <ion-item routerDirection="root" [routerLink]="[page.url]" lines="none" detail="false">
               <ion-icon slot="start" [name]="page.icon"></ion-icon>
