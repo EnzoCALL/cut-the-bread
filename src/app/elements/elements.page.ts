@@ -1,5 +1,4 @@
 import { Element, ElementService } from './../element/element.service';
-import { ActionSheetController, AlertController, ToastController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,25 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class ElementsPage implements OnInit {
   elements: Element[];
 
-  constructor(
-    private elementService: ElementService,
-    private actionSheetController: ActionSheetController,
-    private alertController: AlertController,
-    private toastController: ToastController)
+  constructor(private elementService: ElementService)
   {
     this.elements = this.elementService.getAll();
   }
 
-  ngOnInit() {
+  ngOnInit() { // On page init
   }
 
-  deleteElement(element: Element){
+  deleteElement(element: Element){ // Filters element from elements array
     this.elements = this.elements.filter((e) => e.id !== element.id);
   }
-  addOne(name : string){
+  addOne(name : string){ // Adds '1' to element ammount
     this.elementService.addAmmount(name);
   }
-  subOne(name : string){
+  subOne(name : string){ // Removes '1' to element ammount
     this.elementService.subAmmount(name);
   }
 }

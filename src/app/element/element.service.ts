@@ -16,36 +16,36 @@ export class ElementService {
   private elements: Element[];
   constructor() {
     this.elements = [
-      { id: '1', name: 'Stone', ammount: 0, required: 10, status: "todo"},
-      { id: '2', name: 'Iron ore', ammount: 0, required: 5, status: "todo"},
+      { id: '1', name: 'Stone', ammount: 6, required: 10, status: "todo"},
+      { id: '2', name: 'Iron ore', ammount: 2, required: 5, status: "todo"},
       { id: '3', name: 'Wood planks', ammount: 0, required:2, status: "todo"},
       { id: '4', name: 'Upgrade', ammount: 0, required:1, status: "todo"},
     ];
   }
 
-  getAll(){
+  getAll(){ // Returns array of all elements
     return this.elements;
   }
-  getAllName(){ // Retourne un tableau contenant tout les noms d'elements
+  getAllName(){ // Returns array of all elements name inbetween '[ ]'
     const tab: string[] = [];
     this.elements.forEach((e) => tab.push(" [" + e.name + "]"));
     return tab;
   }
-  getElements(id:string){ // Retourne un element via son ID
+  getElements(id:string){ // Returns element by ID
     return this.elements.find((element) => element.id === id);
   }
-  getElementByName(name:string): Element{ // Retourne un element via son nom
+  getElementByName(name:string): Element{ // Returns element by name
     return this.elements.find((element) => element.name === name) as Element;
   }
-  addAmmount(name: string){ // Incrémente le montant d'un element de +1 via son nom
+  addAmmount(name: string){ // Adds one to element ammount then call setStatus
     let element = this.elements.find((element) => element.name === name);
     if(element) { element.ammount = element.ammount + 1;  this.setStatus(element); };
   }
-  subAmmount(name: string){ // Incrémente le montant d'un element de -1 via son nom
+  subAmmount(name: string){ // Removes one to element ammount then call setStatus
     let element = this.elements.find((element) => element.name === name);
     if(element) { element.ammount = element.ammount - 1;  this.setStatus(element); };
   }
-  setStatus(element: Element){ // Set le status d'un element selon son montant
+  setStatus(element: Element){ // Sets element status depending 'ammount' & 'required'
     if(element.ammount >= element?.required){
              element.status = "done";
     } else { element.status = "todo" }

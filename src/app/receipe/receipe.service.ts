@@ -40,23 +40,23 @@ export class ReceipeService {
     ];
   }
 
-  getAll(){ // Retourne un tableau contenant toutes les recettes
+  getAll(){ // Returns array of all receipes
     return this.receipes;
   }
 
-  getAllName(name:string){ // Retourne un tableau contenant tout les noms d'elements d'un recette via son nom
+  getAllName(name:string){ // Returns array of all elements names within a receipe by name
     const tab: string[] = [];
     let receipe = this.receipes.find((receipe) => receipe.name === name);
     if(receipe) { receipe.elements.forEach((r) => tab.push(" [" + r.name + "]")); };
     return tab;
   }
 
-  checkAll(){
+  checkAll(){ // Checks all elements status of every receipes : if all elements == "done", receipe.status = "done"
     this.receipes.forEach((r) => {
       let counter: number = 0;
       r.elements.forEach((e) =>{ if(e.status == "done"){ counter = counter +1; } });
       if (counter == r.elements.length ){ r.status = "done"; }
-      else { r.status = "todo"; }
+                                   else { r.status = "todo"; }
     })
   }
 }
