@@ -12,18 +12,9 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'edit',
-    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+    path: 'elements',
+    loadChildren: () => import('./elements/elements.module').then( m => m.ElementsPageModule)
   },
-  {
-    path: 'edit',
-    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-
 ];
 
 @NgModule({
@@ -32,4 +23,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

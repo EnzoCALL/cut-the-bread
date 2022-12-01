@@ -1,19 +1,33 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      Craft list
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-fab slot="fixed" horizontal="center" vertical="center">
-    <ion-fab-button>
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-    
-    <ion-fab-list side="bottom">
-      <ion-button (click)="testNotif()" horizontal="center" vertical="center">
-        Add a receipe
-      </ion-button>
-    </ion-fab-list>
-  </ion-fab>
+<ion-content [fullscreen]="true">
+  <ion-item-divider>
+    <ion-item-group>
+      <ion-card-header>
+        <ion-card-title>Basic furnace</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Can't do much without a furnace 'ey!</p>
+        <p>> {{nbElements}} elements required :  {{eachElements}}</p>
+      </ion-card-content>
+    </ion-item-group>
+  </ion-item-divider>
+
+  <ion-item-divider>
+    <ion-item-group>
+      <ion-card-header>
+        <ion-card-title>Advanced furnace</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>And better the furnace, better the possibilities 'ey!</p>
+        <p>> {{nbElements}} elements required :  {{eachElements}}</p>
+      </ion-card-content>
+    </ion-item-group>
+  </ion-item-divider>
 </ion-content>

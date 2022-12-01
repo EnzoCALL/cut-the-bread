@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Elements</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let element of elements">
+      <ion-item>
+        <ion-icon slot="start" name="cube-outline"> </ion-icon>
+        <ion-label slot="start">{{element.name}}</ion-label>
+        <ion-icon slot="start" *ngIf="element.ammount>=element.required" name="checkmark-outline"></ion-icon>
+        <ion-icon slot="start" *ngIf="element.ammount<element.required" name="close-outline"> </ion-icon>
+        <ion-label slot="end">{{element.ammount}}  /  {{element.required}}</ion-label>
+        <ion-icon slot="end" name="remove-outline" (click)="subOne(element.name)"> </ion-icon>
+        <ion-icon slot="end" name="add-outline" (click)="addOne(element.name)"> </ion-icon>
+      </ion-item>
+      <ion-item-options side="end"> <ion-item-option color="danger">Delete </ion-item-option> </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

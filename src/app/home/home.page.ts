@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { PushNotifications } from '@capacitor/push-notifications';
+import { ElementService } from './../element/element.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
-  async testNotif() {
-    alert("TEST"); // Ce bouton faira apparaitre un popup ou l'on rentrera les informations nécessaires à la création d'une carte
+  public nbElements: number;
+  public eachElements: string[];
+
+  constructor(private elementService:ElementService) {
+    this.nbElements = this.elementService.getAll().length;
+    this.eachElements = this.elementService.getAllName();
   }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
