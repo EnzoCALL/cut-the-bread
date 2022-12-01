@@ -7,27 +7,18 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item-divider>
-    <ion-item-group>
-      <ion-card-header>
-        <ion-card-title>Basic furnace</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Can't do much without a furnace 'ey!</p>
-        <p>> {{nbElements}} elements required :  {{eachElements}}</p>
-      </ion-card-content>
-    </ion-item-group>
-  </ion-item-divider>
 
-  <ion-item-divider>
-    <ion-item-group>
-      <ion-card-header>
-        <ion-card-title>Advanced furnace</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>And better the furnace, better the possibilities 'ey!</p>
-        <p>> {{nbElements}} elements required :  {{eachElements}}</p>
-      </ion-card-content>
-    </ion-item-group>
-  </ion-item-divider>
+  <ion-item-sliding *ngFor="let receipe of receipes">
+    <ion-item-divider>
+      <ion-item-group>
+        <ion-card-header>
+          <ion-card-title>{{receipe.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{receipe.description}}</p>
+          <p>> {{receipe.elements.length}} elements required :  {{getAllElements(receipe.name)}}</p>
+        </ion-card-content>
+      </ion-item-group>
+    </ion-item-divider>
+  </ion-item-sliding>
 </ion-content>

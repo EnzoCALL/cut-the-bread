@@ -16,7 +16,10 @@
         <ion-icon slot="end" name="remove-outline" (click)="subOne(element.name)"> </ion-icon>
         <ion-icon slot="end" name="add-outline" (click)="addOne(element.name)"> </ion-icon>
       </ion-item>
-      <ion-item-options side="end"> <ion-item-option color="danger">Delete </ion-item-option> </ion-item-options>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteElement(element)">Delete </ion-item-option>
+      </ion-item-options>
     </ion-item-sliding>
+
   </ion-list>
 </ion-content>
