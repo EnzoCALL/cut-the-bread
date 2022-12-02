@@ -11,11 +11,10 @@
   <ion-list>
     <ion-item-sliding *ngFor="let element of elements">
       <ion-item>
-        <ion-icon slot="start" name="cube-outline"> </ion-icon>
-        <ion-label slot="start">{{element.name}}</ion-label>
+        <ion-label slot="start" style="max-width:30%">{{element.name}}</ion-label>
         <ion-icon slot="start" *ngIf="element.ammount>=element.required" name="checkmark-outline" style="color: green"></ion-icon>
         <ion-icon slot="start" *ngIf="element.ammount<element.required" name="close-outline" style="color: red"> </ion-icon>
-        <ion-label slot="end">{{element.ammount}}  /  {{element.required}}</ion-label>
+        <ion-label slot="end" style="min-width:30%">{{element.ammount}}  /  {{element.required}}</ion-label>
         <ion-icon slot="end" name="remove-outline" (click)="subOne(element.name)"> </ion-icon>
         <ion-icon slot="end" name="add-outline" (click)="addOne(element.name)"> </ion-icon>
       </ion-item>

@@ -20,21 +20,16 @@ export class HomePage implements OnInit {
     this.receipes = this.receipeService.getAll();
   }
   ngOnInit(): void { // On page init, will check every receipe's element status to see if they're all fillfuled
-    this.receipeService.checkAll();
+    const receipesDone = this.receipeService.checkAll();
+    if (receipesDone >= 1){ this.receipeNotification(); }
   }
   getAllElements(name: string){ // Gets all elements from a receipe using its name
     return this.receipeService.getAllName(name);
   }
   addReceipe(){ // TODO
-    //alert("Feature is not added yet");
-    this.notificationService.checkPermissions();
-    if (confirm("Checking permissions, press OK to request permissions") == true) {
-      this.notificationService.requestPermissions();
-      if (confirm("Requesting permissions, press OK to test notifications") == true) {
-        this.notificationService.testNotification();
-      } else { }
-    } else {
-      this.notificationService.testNotification();
-    }
+    alert("Feature is not added yet");
+  }
+  receipeNotification(){ // Sends a notification informing a receipe is ready
+    this.notificationService.sendNotification();
   }
 }

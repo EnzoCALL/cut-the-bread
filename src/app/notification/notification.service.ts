@@ -11,22 +11,21 @@ export class NotificationService {
   constructor() {
     this.notification1 = {
       id: 1,
-      title: "Ready",
+      title: "Good news!",
       body: 'A receipe is ready to craft!',
     }
-
     this.options = {
       notifications : [ this.notification1 ],
     }
   }
 
-  testNotification() {
-    return this.notification1.schedule;
+  sendNotification() { // Delivers the notification
+    return LocalNotifications.schedule(this.options);
   }
-  checkPermissions(){
+  checkPermissions(){ // Checks if notifications are permitted
     return LocalNotifications.checkPermissions();
   }
-  requestPermissions(){
+  requestPermissions(){ // Requests permissions for notifications
     return LocalNotifications.requestPermissions();
   }
 }

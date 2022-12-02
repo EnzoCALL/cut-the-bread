@@ -52,11 +52,12 @@ export class ReceipeService {
   }
 
   checkAll(){ // Checks all elements status of every receipes : if all elements == "done", receipe.status = "done"
+    let counter: number = 0;
     this.receipes.forEach((r) => {
-      let counter: number = 0;
-      r.elements.forEach((e) =>{ if(e.status == "done"){ counter = counter +1; } });
-      if (counter == r.elements.length ){ r.status = "done"; }
+      let subcounter: number = 0;
+      r.elements.forEach((e) =>{ if(e.status == "done"){ subcounter = subcounter +1; } });
+      if (subcounter == r.elements.length ){ r.status = "done"; counter = counter +1; }
                                    else { r.status = "todo"; }
-    })
+    }); return counter;
   }
 }
